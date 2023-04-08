@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>661419483752-v5n8g6drbbpmlnati33v6okvuv4h1fbg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.661419483752-v5n8g6drbbpmlnati33v6okvuv4h1fbg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBi-2e2bp0yRYQSwg7F55J7cED3aLG6sHo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>661419483752</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.skillswap</string>
+	<key>PROJECT_ID</key>
+	<string>skillswap-b1321</string>
+	<key>STORAGE_BUCKET</key>
+	<string>skillswap-b1321.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:661419483752:ios:2595401319e21119e391dd</string>
+</dict>
+</plist>
