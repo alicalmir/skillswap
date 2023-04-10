@@ -41,6 +41,8 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_native_splash: ^2.2.18
   get: ^4.6.5
+  flutter_otp_text_field: ^1.1.1
+  firebase_auth: ^4.4.0
 
 
 

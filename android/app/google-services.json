@@ -29,6 +29,13 @@
             {
               "client_id": "661419483752-2g3lldq3qhi8l7tki2gq6uukj0ohn6s2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "661419483752-v5n8g6drbbpmlnati33v6okvuv4h1fbg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.skillswap"
+              }
             }
           ]
         }

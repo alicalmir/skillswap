@@ -1,12 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:skillswap/src/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:skillswap/src/repository/authentication_repository.dart';
 import 'package:skillswap/src/utils/theme/theme.dart';
 
-void main() async {
+import 'firebase_options.dart';
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthenticationRepository()));
 
   runApp(const MyApp());
 }
