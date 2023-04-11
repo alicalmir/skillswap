@@ -8,3 +8,6 @@ const String tGoogleLogoImage = "assets/images/logo/google-logo.png";
 
 const String tForgetPasswordImage =
     "assets/images/forget_password/forget-password.png";
+
+//** Profile image */
+const String tPRofileImages = "assets/images/profile/profile-pic.png";

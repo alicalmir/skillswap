@@ -13,7 +13,7 @@ const String tSignInWithGoogle = "Sign-In with Google";
 
 // -- Splash Screen Text
 const String tAppName = "SkillSwap";
-const String tAppTagLine = "Give And Take Oppertunity. \nFree For Everyone";
+const String tAppTagLine = "Give And Take Opportunity. \nFree For Everyone";
 
 // -- On Boarding Text
 const String tOnBoardingTitle1 = "Build Awesome Apps";
@@ -64,3 +64,22 @@ const String tForgetMailSubTitle =
 const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "Verification";
 const String tOtpMessage = "Enter the verification code sent at ";
+
+//** PRofile SCreen*/
+const String tProfile = "Profile";
+const String tEditProfile = "Edit Profile";
+const String tLogoutDialogHeading = "Logout";
+const String tProfileHeading = "profileheadng";
+const String tProfileSubHEading = "tProfileSubHEading";
+
+//** Menu */
+const String tMenu1 = "Settings";
+const String tMenu2 = "Billing Details";
+const String tMenu3 = "User Managment";
+const String tMenu4 = "Information";
+const String tMenu5 = "Logout";
+
+//** Update profile screen text */
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+const String tJoinedAt = "DD/MM/YY";

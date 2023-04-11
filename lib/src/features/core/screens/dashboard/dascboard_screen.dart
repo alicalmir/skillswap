@@ -10,7 +10,7 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: Container(
-        child: Text('Dashboard'),
+        child: const Text('Dashboard'),
       )),
     );
   }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "661419483752-am2oh07hr7nn155p6eqq4b1uq3o78kha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.skillswap",
+            "certificate_hash": "57d1cf1e8be0cfe9669fb8bd15c47f852bfd1b3f"
+          }
+        },
+        {
           "client_id": "661419483752-2g3lldq3qhi8l7tki2gq6uukj0ohn6s2.apps.googleusercontent.com",
           "client_type": 3
         }
