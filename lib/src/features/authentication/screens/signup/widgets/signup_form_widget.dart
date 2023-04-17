@@ -4,9 +4,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:skillswap/src/features/authentication/controllers/signup_controller.dart';
 import 'package:skillswap/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
+import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 
 import '../../../../../constants/size.dart';
 import '../../../../../constants/text_string.dart';
+import '../../../../../repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({super.key});
@@ -59,19 +61,35 @@ class SignUpFormWidget extends StatelessWidget {
                 height: tFormHeight - 20,
               ),
               SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      try {
+                        SignUpController.instance.registerUser(
+                            controller.email.text.trim(),
+                            controller.password.text.trim());
+                      } catch (e) {
+                        // Handle exceptions
+                        print('Unexpected error: $e');
+                      }
+                    }
+                  },
+                  child: Text(tSignup.toUpperCase()),
+                ),
+                /*ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          /*SignUpController.instance.registerUser(
+                          SignUpController.instance.registerUser(
                               controller.email.text.trim(),
-                              controller.password.text.trim());*/
-                          SignUpController.instance.phoneAuthentication(
-                              controller.phoneNo.text.trim());
-                          Get.to(() => const OTPScreen());
+                              controller.password.text.trim());
+                          /*SignUpController.instance.phoneAuthentication(
+                              controller.phoneNo.text.trim());*/
+                          Get.to(() => const Dashboard());
                         }
                       },
-                      child: Text(tSignup.toUpperCase()))),
+                      child: Text(tSignup.toUpperCase())),*/
+              ),
             ],
           )),
     );

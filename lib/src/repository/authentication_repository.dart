@@ -21,10 +21,12 @@ class AuthenticationRepository extends GetxController {
     ever(firebaseUser, _setInitialScreen);
   }
 
-  _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const WelcomeScreen())
-        : Get.offAll(() => const Dashboard());
+  void _setInitialScreen(User? user) {
+    if (user == null) {
+      Get.offAll(() => const WelcomeScreen());
+    } else {
+      Get.offAll(() => const Dashboard());
+    }
   }
 
   //
@@ -62,17 +64,24 @@ class AuthenticationRepository extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      // Account creation was successful, show success message to user
+      Get.snackbar(
+          'Account created', 'Your account has been created successfully');
       firebaseUser.value != null
           ? Get.offAll(() => const Dashboard())
           : Get.to(() => const WelcomeScreen());
     } on FirebaseException catch (e) {
+      // Account creation failed, show error message to user
+      Get.snackbar('Error', e.toString());
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       throw ex;
-    } catch (_) {
-      /*const ex = SignUpWithEmailAndPasswordFailure();
-      print('EXCAPTION- ${ex.message}');
-      throw ex;*/
+    } catch (e) {
+      // Account creation failed, show error message to user
+      Get.snackbar('Error', e.toString());
+      var ex = SignUpWithEmailAndPasswordFailure();
+      print('EXCEPTION - ${ex.message}');
+      throw ex;
     }
   }
 
