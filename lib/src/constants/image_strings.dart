@@ -11,3 +11,5 @@ const String tForgetPasswordImage =
 
 //** Profile image */
 const String tPRofileImages = "assets/images/profile/profile-pic.png";
+
+const String tBookMarkIcon = "assets/images/dashboard/book-mark-icon.png";

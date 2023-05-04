@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:skillswap/src/features/authentication/controllers/signup_controller.dart';
+import 'package:skillswap/src/features/authentication/models/user_model.dart';
 import 'package:skillswap/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 
@@ -65,14 +66,22 @@ class SignUpFormWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      try {
+                      final user = UserModel(
+                          fullName: controller.fullName.text.trim(),
+                          email: controller.email.text.trim(),
+                          phoneNo: controller.phoneNo.text.trim(),
+                          password: controller.password.text.trim());
+
+                      SignUpController.instance.createUser(user);
+
+                      /*try {
                         SignUpController.instance.registerUser(
                             controller.email.text.trim(),
                             controller.password.text.trim());
                       } catch (e) {
                         // Handle exceptions
                         print('Unexpected error: $e');
-                      }
+                      }*/
                     }
                   },
                   child: Text(tSignup.toUpperCase()),

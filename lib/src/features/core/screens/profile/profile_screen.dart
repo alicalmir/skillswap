@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:skillswap/src/constants/colors.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
+import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
+import 'package:skillswap/src/features/core/screens/profile/update_profile_screen.dart';
+import 'package:skillswap/src/features/core/screens/profile/widget/profile_menu.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,8 +18,13 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const Dashboard());
+          },
           icon: const Icon(
             LineAwesomeIcons.angle_left,
           ),
@@ -37,15 +44,34 @@ class ProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
           children: [
-            SizedBox(
-              width: 120,
-              height: 120,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: const Image(
-                  image: AssetImage(tPRofileImages),
+            Stack(
+              children: [
+                SizedBox(
+                  width: 120,
+                  height: 120,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: const Image(
+                      image: AssetImage(tPRofileImages),
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                        width: 35,
+                        height: 35,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: tPrimaryColor),
+                        child: const Icon(LineAwesomeIcons.alternate_pencil,
+                            size: 20.0, color: Colors.black)),
+                  ),
+                )
+              ],
             ),
             const SizedBox(
               height: 10,
@@ -61,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const UpdateProfileScreen()),
                 style: ElevatedButton.styleFrom(
                     backgroundColor: tPrimaryColor,
                     side: BorderSide.none,
@@ -81,20 +107,39 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             //MENU
-            ListTile(
-              leading: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: tAccentColor.withOpacity(0.1),
-                ),
-                child: const Icon(
-                  LineAwesomeIcons.cog,
-                  color: tAccentColor,
-                ),
-              ),
-            )
+            ProfileMenuWidget(
+              title: "Settings",
+              icon: LineAwesomeIcons.cog,
+              onPress: () {},
+            ),
+            ProfileMenuWidget(
+              title: "Biling Details",
+              icon: LineAwesomeIcons.wallet,
+              onPress: () {},
+            ),
+            ProfileMenuWidget(
+              title: "User Managment",
+              icon: LineAwesomeIcons.user_check,
+              onPress: () {},
+            ),
+            const Divider(
+              color: Colors.grey,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ProfileMenuWidget(
+              title: "Information",
+              icon: LineAwesomeIcons.info,
+              onPress: () {},
+            ),
+            ProfileMenuWidget(
+              title: "Logout",
+              icon: LineAwesomeIcons.alternate_sign_out,
+              onPress: () {},
+              endIcon: false,
+              textColor: Colors.red,
+            ),
           ],
         ),
       )),

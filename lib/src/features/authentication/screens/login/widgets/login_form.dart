@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
 import 'package:skillswap/src/features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
+import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 
 import '../../forget_password/forget_password_options/forget_password_btn_widget.dart';
 
@@ -52,7 +54,10 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  onPressed: () {}, child: Text(tLogin.toUpperCase())),
+                  onPressed: () {
+                    Get.to(() => const Dashboard());
+                  },
+                  child: Text(tLogin.toUpperCase())),
             )
           ],
         ),

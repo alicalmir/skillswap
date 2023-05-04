@@ -83,3 +83,7 @@ const String tMenu5 = "Logout";
 const String tDelete = "Delete";
 const String tJoined = "Joined";
 const String tJoinedAt = "DD/MM/YY";
+
+const String tDashboardTitle = "Hey explore your skills";
+const String tDashboardHeading = "Find new opportunities";
+const String tDashboardSearch = "Search";

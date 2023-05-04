@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 import 'package:skillswap/src/features/authentication/screens/welcome/welcome_screen.dart';
 
-import 'authentication_repository/exceptions/signup_email_password_failure.dart';
+import 'exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -22,10 +22,10 @@ class AuthenticationRepository extends GetxController {
   }
 
   void _setInitialScreen(User? user) {
-    if (user == null) {
-      Get.offAll(() => const WelcomeScreen());
+    if (FirebaseAuth.instance.currentUser == null) {
+      Get.off(() => const WelcomeScreen());
     } else {
-      Get.offAll(() => const Dashboard());
+      Get.off(() => const Dashboard());
     }
   }
 
@@ -46,7 +46,7 @@ class AuthenticationRepository extends GetxController {
         if (e.code == 'invalid-phone-number') {
           Get.snackbar('Error', 'The provided phone number is not valid');
         } else {
-          Get.snackbar('Error', 'Something went wrong. Try again.');
+          Get.snackbar('Error', 'Something went wrong. Try aaagain.');
         }
       },
     );
@@ -63,13 +63,16 @@ class AuthenticationRepository extends GetxController {
       String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       // Account creation was successful, show success message to user
+
       Get.snackbar(
           'Account created', 'Your account has been created successfully');
-      firebaseUser.value != null
-          ? Get.offAll(() => const Dashboard())
-          : Get.to(() => const WelcomeScreen());
+      /*firebaseUser.value != null
+          ? Get.off(() => const Dashboard())
+          : Get.to(() => const WelcomeScreen());*/
     } on FirebaseException catch (e) {
       // Account creation failed, show error message to user
       Get.snackbar('Error', e.toString());

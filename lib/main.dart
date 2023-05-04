@@ -6,7 +6,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:skillswap/src/features/authentication/controllers/otp_controller.dart';
 import 'package:skillswap/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:skillswap/src/features/core/screens/profile/profile_screen.dart';
-import 'package:skillswap/src/repository/authentication_repository.dart';
+import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:skillswap/src/utils/theme/theme.dart';
 
 import 'firebase_options.dart';
