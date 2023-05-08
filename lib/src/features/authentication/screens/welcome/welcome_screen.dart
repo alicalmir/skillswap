@@ -21,12 +21,12 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
       body: Container(
-        padding: EdgeInsets.all(tDefaultSize),
+        padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image(
-              image: AssetImage(tWelcomeScreenImage),
+              image: const AssetImage(tWelcomeScreenImage),
               height: height * 0.55,
             ),
             Column(
@@ -47,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () {
-                      Get.to(() => LoginScreen());
+                      Get.to(() => const LoginScreen());
                     },
                     child: Text(tLogin.toUpperCase()),
                   ),
@@ -58,7 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.to(() => SignUpScreen());
+                      Get.to(() => const SignUpScreen());
                     },
                     child: Text(tSignup.toUpperCase()),
                   ),

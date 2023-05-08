@@ -60,6 +60,9 @@ class SignUpController extends GetxController {
     await userRepo.createUser(user);
     //phoneAuthentication(user.phoneNo);
     registerUser(user.email, user.password);
+
+    
     //await Get.to(() => const OTPScreen());
   }
 }
+

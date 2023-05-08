@@ -5,6 +5,7 @@ import 'package:skillswap/src/constants/colors.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
+import 'package:skillswap/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 import 'package:skillswap/src/features/core/screens/profile/update_profile_screen.dart';
 import 'package:skillswap/src/features/core/screens/profile/widget/profile_menu.dart';
@@ -23,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            Get.to(() => const Dashboard());
+            Get.to(() => Dashboard());
           },
           icon: const Icon(
             LineAwesomeIcons.angle_left,
@@ -136,7 +137,9 @@ class ProfileScreen extends StatelessWidget {
             ProfileMenuWidget(
               title: "Logout",
               icon: LineAwesomeIcons.alternate_sign_out,
-              onPress: () {},
+              onPress: () {
+                Get.offAll(() => const WelcomeScreen());
+              },
               endIcon: false,
               textColor: Colors.red,
             ),

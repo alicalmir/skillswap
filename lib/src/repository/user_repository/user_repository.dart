@@ -10,7 +10,7 @@ class UserRepository extends GetxController {
 
   /// Store user in FireStore
   Future<void> createUser(UserModel user) async {
-    await _db
+    final docRef = await _db
         .collection("Users")
         .add(user.toJson())
         .whenComplete(() => Get.snackbar(
@@ -24,12 +24,15 @@ class UserRepository extends GetxController {
           backgroundColor: Colors.green.withOpacity(0.1),
           colorText: Colors.green);
     });
+    final id = docRef.id;
+    user.setId(id);
+    await docRef.update(user.toJson());
   }
 
   ///Fetch all users or user data
   Future<UserModel> getUserDetails(String email) async {
     final snapshot =
-        await _db.collection("Users").where("Email", isEqualTo: email).get();
+        await _db.collection("Users").where("email", isEqualTo: email).get();
     final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
     return userData;
   }

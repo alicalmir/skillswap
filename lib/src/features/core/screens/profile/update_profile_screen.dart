@@ -23,7 +23,10 @@ class UpdateProfileScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             onPressed: () => Get.back(),
-            icon: const Icon(LineAwesomeIcons.angle_left)),
+            icon: const Icon(
+              LineAwesomeIcons.angle_left,
+              color: tDarkColor,
+            )),
         title: Text(tEditProfile, style: Theme.of(context).textTheme.headline4),
       ),
       body: SingleChildScrollView(
@@ -123,7 +126,8 @@ class UpdateProfileScreen extends StatelessWidget {
                                       fullName: fullname.text.trim(),
                                       email: email.text.trim(),
                                       phoneNo: phoneNo.text.trim(),
-                                      password: password.text.trim());
+                                      password: password.text.trim(),
+                                      id: '');
 
                                   await controller.updateRecord(user);
                                 },

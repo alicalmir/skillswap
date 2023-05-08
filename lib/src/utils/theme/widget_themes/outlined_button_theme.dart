@@ -13,7 +13,7 @@ class TOutlinedButtonTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         foregroundColor: tSecondaryColor,
         side: BorderSide(color: tSecondaryColor),
-        padding: EdgeInsets.symmetric(vertical: tButtonHeight)),
+        padding: const EdgeInsets.symmetric(vertical: tButtonHeight)),
   );
 
   /** Dark Theme */

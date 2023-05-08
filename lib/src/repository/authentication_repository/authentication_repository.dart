@@ -25,7 +25,7 @@ class AuthenticationRepository extends GetxController {
     if (FirebaseAuth.instance.currentUser == null) {
       Get.off(() => const WelcomeScreen());
     } else {
-      Get.off(() => const Dashboard());
+      Get.off(() => Dashboard());
     }
   }
 
