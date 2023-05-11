@@ -105,7 +105,69 @@ class Dashboard extends StatelessWidget {
                   const SizedBox(
                     height: tDashBoardPadding + 5,
                   ),
+                  //Find botton
                   InkWell(
+                    onTap: () {
+                      Get.to(() => PostListScreen());
+                    },
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: 80,
+                          decoration: const BoxDecoration(
+                            color: tPrimaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.search,
+                                size: 44,
+                                color: tWhiteColor,
+                              ),
+                              const SizedBox(width: 8),
+                              RichText(
+                                text: TextSpan(
+                                  style: txtTheme.headline2,
+                                  children: const <TextSpan>[
+                                    TextSpan(
+                                      text: 'Find',
+                                      style: TextStyle(color: tWhiteColor),
+                                    ),
+                                    TextSpan(
+                                      text: ' Opportunities',
+                                      style: TextStyle(color: tWhiteColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned.fill(
+                          bottom: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              border: Border.all(color: Colors.black, width: 2),
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Colors.black.withOpacity(0.0),
+                                  tPrimaryColor.withOpacity(0.2),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  /*InkWell(
                     onTap: () {
                       Get.to(() => PostListScreen());
                     },
@@ -148,7 +210,7 @@ class Dashboard extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  )*/
                 ],
               ),
             ),

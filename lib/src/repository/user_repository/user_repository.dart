@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skillswap/src/features/authentication/models/user_model.dart';
+import 'package:uuid/uuid.dart';
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
@@ -9,10 +10,10 @@ class UserRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   /// Store user in FireStore
-  Future<void> createUser(UserModel user) async {
+  Future<DocumentReference> createUser(UserModel user) async {
     final docRef = await _db
         .collection("Users")
-        .add(user.toJson())
+        .add(Map.from(user.toJson())..addAll({"id": Uuid().v4()}))
         .whenComplete(() => Get.snackbar(
             "Success", "You account has been created.",
             snackPosition: SnackPosition.BOTTOM,
@@ -24,9 +25,9 @@ class UserRepository extends GetxController {
           backgroundColor: Colors.green.withOpacity(0.1),
           colorText: Colors.green);
     });
-    final id = docRef.id;
-    user.setId(id);
+    user.setId(docRef.id);
     await docRef.update(user.toJson());
+    return docRef;
   }
 
   ///Fetch all users or user data
@@ -47,4 +48,14 @@ class UserRepository extends GetxController {
   Future<void> updateUserRecord(UserModel user) async {
     await _db.collection("Users").doc(user.id).update(user.toJson());
   }
+
+  /*Future<Map<String, dynamic>> getUserData(String email) async {
+    final snapshot =
+        await _db.collection("Users").where("email", isEqualTo: email).get();
+    final userData = await snapshot.docs.map((e) => e.data()).single;
+    return {
+      "fullName": userData["fullName"],
+      "id": userData["id"],
+    };
+  }*/
 }

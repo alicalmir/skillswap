@@ -41,6 +41,12 @@ class AddPostScreen extends StatelessWidget {
               controller: titleController,
               decoration: const InputDecoration(hintText: 'Title'),
             ),
+            const SizedBox(
+              height: 5,
+            ),
+            Container(
+                //HERE
+                ),
             const SizedBox(height: 16.0),
             TextField(
               controller: bodyController,
@@ -52,18 +58,13 @@ class AddPostScreen extends StatelessWidget {
                 PostModel post = PostModel(
                   title: titleController.text,
                   body: bodyController.text,
-                  id: ''
                 );
 
-                String docId = await postController.addPost(post);
-
-                // update post with the new document ID and add it to the local list of posts
-                PostModel updatedPost = post.copyWith(id: docId);
-                postController.posts.add(updatedPost);
+                await postController.addPost(post);
 
                 Get.back();
               },
-              child: Text('Add'),
+              child: const Text('Add'),
             ),
           ],
         ),

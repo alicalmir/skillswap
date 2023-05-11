@@ -1,5 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-
+import 'package:uuid/uuid.dart';
 
 import '../../../repository/post_repository/post_repository.dart';
 import '../models/post_model.dart';
@@ -16,7 +17,7 @@ class PostController extends GetxController {
     fetchPosts();
   }
 
-void fetchPosts() async {
+  void fetchPosts() async {
     isLoading.value = true;
     try {
       List<PostModel> fetchedPosts = await postRepository.getPosts();
@@ -28,16 +29,18 @@ void fetchPosts() async {
     }
   }
 
-Future<String> addPost(PostModel post) async {
-  try {
-    String docId = await postRepository.addPost(post.toJson());
-    return docId;
-  } catch (e) {
-    print(e);
-    rethrow;
+  Future<String> addPost(PostModel post) async {
+    try {
+      String docId = await postRepository.addPost(post);
+      // Add the post to the local list of posts
+      post.copyWith(id: docId);
+      posts.add(post);
+      return docId;
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
   }
-}
-
 
   void deletePost(String id) async {
     await postRepository.deletePost(id);

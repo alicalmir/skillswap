@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:skillswap/src/common_widgets/form/form_header_widget.dart';
-import 'package:skillswap/src/constants/colors.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';

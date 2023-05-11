@@ -44,41 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDu-8UTW93y1kxICKWPmoNf0zJSQ2hWUn0',
-    appId: '1:661419483752:web:e4716786ae1c2b8ae391dd',
-    messagingSenderId: '661419483752',
-    projectId: 'skillswap-b1321',
-    authDomain: 'skillswap-b1321.firebaseapp.com',
-    storageBucket: 'skillswap-b1321.appspot.com',
+    apiKey: 'AIzaSyAo_Xf1Cxu6lq3qocdNRpxPoHSs5ucFR_U',
+    appId: '1:331251895375:web:3924905ee6c36c21666e3a',
+    messagingSenderId: '331251895375',
+    projectId: 'skillswap-31798',
+    authDomain: 'skillswap-31798.firebaseapp.com',
+    storageBucket: 'skillswap-31798.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCA8sEoqjLsv9U-rqB9woEXBUt4iJpuWPA',
-    appId: '1:661419483752:android:0042219346791400e391dd',
-    messagingSenderId: '661419483752',
-    projectId: 'skillswap-b1321',
-    storageBucket: 'skillswap-b1321.appspot.com',
+    apiKey: 'AIzaSyCNLTaGsu3hNJCTSpnfNc4U7Nh_QseqJ1M',
+    appId: '1:331251895375:android:e25d3abfcf9c571e666e3a',
+    messagingSenderId: '331251895375',
+    projectId: 'skillswap-31798',
+    storageBucket: 'skillswap-31798.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBi-2e2bp0yRYQSwg7F55J7cED3aLG6sHo',
-    appId: '1:661419483752:ios:2595401319e21119e391dd',
-    messagingSenderId: '661419483752',
-    projectId: 'skillswap-b1321',
-    storageBucket: 'skillswap-b1321.appspot.com',
-    androidClientId: '661419483752-am2oh07hr7nn155p6eqq4b1uq3o78kha.apps.googleusercontent.com',
-    iosClientId: '661419483752-v5n8g6drbbpmlnati33v6okvuv4h1fbg.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBSViLu_6LXKYiryq4DFaLbAi_qshSBbWM',
+    appId: '1:331251895375:ios:da4baff66ca1e1c3666e3a',
+    messagingSenderId: '331251895375',
+    projectId: 'skillswap-31798',
+    storageBucket: 'skillswap-31798.appspot.com',
+    iosClientId: '331251895375-lto0sbgllm0a584qhh5ce9ic4isfc2ve.apps.googleusercontent.com',
     iosBundleId: 'com.example.skillswap',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBi-2e2bp0yRYQSwg7F55J7cED3aLG6sHo',
-    appId: '1:661419483752:ios:2595401319e21119e391dd',
-    messagingSenderId: '661419483752',
-    projectId: 'skillswap-b1321',
-    storageBucket: 'skillswap-b1321.appspot.com',
-    androidClientId: '661419483752-am2oh07hr7nn155p6eqq4b1uq3o78kha.apps.googleusercontent.com',
-    iosClientId: '661419483752-v5n8g6drbbpmlnati33v6okvuv4h1fbg.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBSViLu_6LXKYiryq4DFaLbAi_qshSBbWM',
+    appId: '1:331251895375:ios:da4baff66ca1e1c3666e3a',
+    messagingSenderId: '331251895375',
+    projectId: 'skillswap-31798',
+    storageBucket: 'skillswap-31798.appspot.com',
+    iosClientId: '331251895375-lto0sbgllm0a584qhh5ce9ic4isfc2ve.apps.googleusercontent.com',
     iosBundleId: 'com.example.skillswap',
   );
 }

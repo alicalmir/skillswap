@@ -67,15 +67,14 @@ class SignUpFormWidget extends StatelessWidget {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       final user = UserModel(
-                          fullName: controller.fullName.text.trim(),
-                          email: controller.email.text.trim(),
-                          phoneNo: controller.phoneNo.text.trim(),
-                          password: controller.password.text.trim(),
-                          id: ""
-                          );
+                        fullName: controller.fullName.text.trim(),
+                        email: controller.email.text.trim(),
+                        phoneNo: controller.phoneNo.text.trim(),
+                        password: controller.password.text.trim(),
+                      );
 
                       SignUpController.instance.createUser(user);
-
+                      Get.to(Dashboard());
                       /*try {
                         SignUpController.instance.registerUser(
                             controller.email.text.trim(),

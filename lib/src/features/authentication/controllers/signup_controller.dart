@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:skillswap/src/repository/user_repository/user_repository.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 import '../models/user_model.dart';
@@ -57,12 +58,9 @@ class SignUpController extends GetxController {
   }
 
   Future<void> createUser(UserModel user) async {
-    await userRepo.createUser(user);
-    //phoneAuthentication(user.phoneNo);
+    final docRef = await userRepo.createUser(user);
+    user.setId(docRef.id);
     registerUser(user.email, user.password);
-
-    
     //await Get.to(() => const OTPScreen());
   }
 }
-

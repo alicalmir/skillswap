@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -181,7 +180,7 @@ class UpdateProfileScreen extends StatelessWidget {
                     child: Text(snapshot.error.toString()),
                   );
                 } else {
-                  return Text("Somethin went wrong");
+                  return const Text("Somethin went wrong");
                 }
               } else {
                 return const Center(child: CircularProgressIndicator());

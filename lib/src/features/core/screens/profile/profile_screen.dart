@@ -28,6 +28,7 @@ class ProfileScreen extends StatelessWidget {
           },
           icon: const Icon(
             LineAwesomeIcons.angle_left,
+            color: tDarkColor,
           ),
         ),
         title: Text(
@@ -88,7 +89,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => const UpdateProfileScreen()),
+                onPressed: () => Get.to(() => UpdateProfileScreen()),
                 style: ElevatedButton.styleFrom(
                     backgroundColor: tPrimaryColor,
                     side: BorderSide.none,

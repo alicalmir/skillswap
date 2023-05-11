@@ -7,8 +7,6 @@ import 'package:get/get.dart';
 import 'package:skillswap/src/features/authentication/screens/login/login_screen.dart';
 import 'package:skillswap/src/features/authentication/screens/signup/signup_screen.dart';
 
-import '../login/login_screen.dart';
-
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 

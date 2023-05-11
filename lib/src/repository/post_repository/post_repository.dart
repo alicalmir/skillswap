@@ -1,14 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-
+import 'package:uuid/uuid.dart';
 import '../../features/core/models/post_model.dart';
 
 class PostRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
-  Future<String> addPost(Map<String, dynamic> post) async {
+  Future<String> addPost(PostModel post) async {
     try {
-      DocumentReference docRef = await _db.collection("Posts").add(post);
+      // Generate a UUID for the post
+      final uuid = Uuid();
+      final postWithId = post.copyWith(id: uuid.v4());
+
+      DocumentReference docRef =
+          await _db.collection("Posts").add(postWithId.toJson());
       return docRef.id;
     } catch (e) {
       print(e);
