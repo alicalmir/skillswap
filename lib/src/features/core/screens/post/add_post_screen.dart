@@ -39,14 +39,12 @@ class AddPostScreen extends StatelessWidget {
           children: [
             TextField(
               controller: titleController,
+              maxLength: 25, // set maximum length to 40
               decoration: const InputDecoration(hintText: 'Title'),
             ),
             const SizedBox(
               height: 5,
             ),
-            Container(
-                //HERE
-                ),
             const SizedBox(height: 16.0),
             TextField(
               controller: bodyController,
@@ -55,14 +53,25 @@ class AddPostScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () async {
-                PostModel post = PostModel(
-                  title: titleController.text,
-                  body: bodyController.text,
-                );
+                if (titleController.text.length > 25) {
+                  // show snack bar if title length is more than 40
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text(
+                          'Title can only have maximum of 25 characters.'),
+                      duration: const Duration(seconds: 2),
+                    ),
+                  );
+                } else {
+                  PostModel post = PostModel(
+                    title: titleController.text,
+                    body: bodyController.text,
+                  );
 
-                await postController.addPost(post);
+                  await postController.addPost(post);
 
-                Get.back();
+                  Get.back();
+                }
               },
               child: const Text('Add'),
             ),

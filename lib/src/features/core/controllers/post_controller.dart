@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../repository/post_repository/post_repository.dart';
+import '../../../repository/user_repository/user_repository.dart';
 import '../models/post_model.dart';
 
 class PostController extends GetxController {
   final PostRepository postRepository = PostRepository();
+  final userRepository = UserRepository.instance;
 
   RxList<PostModel> posts = <PostModel>[].obs;
   RxBool isLoading = false.obs;
@@ -30,8 +32,11 @@ class PostController extends GetxController {
   }
 
   Future<String> addPost(PostModel post) async {
+    final user = FirebaseAuth.instance.currentUser;
+    final userModel = await userRepository.getUserDetails(user!.email!);
+
     try {
-      String docId = await postRepository.addPost(post);
+      String docId = await postRepository.addPost(post, userModel);
       // Add the post to the local list of posts
       post.copyWith(id: docId);
       posts.add(post);

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:skillswap/src/constants/colors.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
 import 'package:skillswap/src/features/core/screens/profile/profile_screen.dart';
+import 'package:skillswap/src/features/messages/screens/chat_list_screen.dart';
 import '../../controllers/post_controller.dart';
 import '../../models/post_model.dart';
 import '../post/add_post_screen.dart';
@@ -122,9 +124,9 @@ class Dashboard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Icon(
-                                Icons.search,
+                                LineAwesomeIcons.search_plus,
                                 size: 44,
-                                color: tWhiteColor,
+                                color: tDarkColor,
                               ),
                               const SizedBox(width: 8),
                               RichText(
@@ -133,11 +135,74 @@ class Dashboard extends StatelessWidget {
                                   children: const <TextSpan>[
                                     TextSpan(
                                       text: 'Find',
-                                      style: TextStyle(color: tWhiteColor),
+                                      style: TextStyle(color: tDarkColor),
                                     ),
                                     TextSpan(
                                       text: ' Opportunities',
-                                      style: TextStyle(color: tWhiteColor),
+                                      style: TextStyle(color: tDarkColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned.fill(
+                          bottom: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              border: Border.all(color: Colors.black, width: 2),
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Colors.black.withOpacity(0.0),
+                                  tPrimaryColor.withOpacity(0.2),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => const ChatListScreen());
+                    },
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: 80,
+                          decoration: const BoxDecoration(
+                            color: tPrimaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                LineAwesomeIcons.list,
+                                size: 44,
+                                color: tDarkColor,
+                              ),
+                              const SizedBox(width: 8),
+                              RichText(
+                                text: TextSpan(
+                                  style: txtTheme.headline2,
+                                  children: const <TextSpan>[
+                                    TextSpan(
+                                      text: 'Chat',
+                                      style: TextStyle(color: tDarkColor),
+                                    ),
+                                    TextSpan(
+                                      text: ' List',
+                                      style: TextStyle(color: tDarkColor),
                                     ),
                                   ],
                                 ),

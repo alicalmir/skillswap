@@ -8,7 +8,7 @@ class UserModel {
   final String password;
 
   UserModel(
-      { this.id,
+      {this.id,
       required this.fullName,
       required this.email,
       required this.phoneNo,
@@ -37,5 +37,15 @@ class UserModel {
         email: data["email"],
         phoneNo: data["phone"],
         password: data["password"]);
+  }
+
+  static UserModel fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['id'],
+      fullName: json['fullName'],
+      email: json['email'],
+      phoneNo: json['phone'],
+      password: json['password'],
+    );
   }
 }

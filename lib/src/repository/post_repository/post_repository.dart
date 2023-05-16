@@ -1,16 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
+import '../../features/authentication/models/user_model.dart';
 import '../../features/core/models/post_model.dart';
+import '../user_repository/user_repository.dart';
 
 class PostRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
+  static PostRepository get instance => Get.find<PostRepository>();
 
-  Future<String> addPost(PostModel post) async {
+  Future<String> addPost(PostModel post, UserModel user) async {
     try {
-      // Generate a UUID for the post
       final uuid = Uuid();
-      final postWithId = post.copyWith(id: uuid.v4());
+      final postWithId = post.copyWith(
+        id: uuid.v4(),
+        userName: user.fullName,
+        userId: user.id,
+      );
 
       DocumentReference docRef =
           await _db.collection("Posts").add(postWithId.toJson());

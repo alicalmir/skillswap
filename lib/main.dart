@@ -1,18 +1,24 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:skillswap/src/features/authentication/controllers/otp_controller.dart';
 import 'package:skillswap/src/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:skillswap/src/features/messages/controller/chat_controller.dart';
 import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';
+import 'package:skillswap/src/repository/message_repository/chat_repository.dart';
+import 'package:skillswap/src/repository/user_repository/user_repository.dart';
 import 'package:skillswap/src/utils/theme/theme.dart';
 
 import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(AuthenticationRepository()));
-  Get.put(OTPController());
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Register dependencies with GetX
+  Get.put(AuthenticationRepository());
+  Get.put(UserRepository());
+  Get.put(ChatRepository());
+  Get.put(ChatController());
 
   runApp(const MyApp());
 }
