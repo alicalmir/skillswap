@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 
@@ -21,14 +19,14 @@ class LoginFooterWidget extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-              icon: Image(
+              icon: const Image(
                 image: AssetImage(
                   tGoogleLogoImage,
                 ),
                 width: 20.0,
               ),
               onPressed: () {},
-              label: Text(tSignInWithGoogle)),
+              label: const Text(tSignInWithGoogle)),
         ),
         const SizedBox(
           height: tFormHeight - 20,

@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import '../../features/authentication/models/user_model.dart';
 import '../../features/core/models/post_model.dart';
-import '../user_repository/user_repository.dart';
 
 class PostRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
@@ -22,7 +21,6 @@ class PostRepository extends GetxController {
           await _db.collection("Posts").add(postWithId.toJson());
       return docRef.id;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

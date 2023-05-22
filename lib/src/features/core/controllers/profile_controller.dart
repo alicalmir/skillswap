@@ -1,5 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:skillswap/src/features/authentication/models/user_model.dart';
 import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';

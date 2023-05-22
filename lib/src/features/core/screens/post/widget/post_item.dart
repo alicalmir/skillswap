@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:skillswap/src/constants/colors.dart';
 import 'package:skillswap/src/features/core/models/post_model.dart';
 import 'package:get/get.dart';
-import 'package:skillswap/src/features/messages/controller/chat_controller.dart';
-
 import '../post_details_screen.dart';
 
 class PostItem extends StatelessWidget {

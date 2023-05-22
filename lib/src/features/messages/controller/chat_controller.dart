@@ -35,16 +35,14 @@ class ChatController extends GetxController {
     return _repository.getChatMessages(senderId, receiverId);
   }
 
-  Stream<List<MessageModel>> getChatList() {
-    if (userId.value.isEmpty) return Stream.empty();
-
-    return _repository.getChatList(userId.value);
+  Future<List<MessageModel>> getChatList(String userId) async {
+    return await _repository.getChatList(userId);
   }
 
   Future<void> sendMessage(String receiverId, String message) async {
     await _repository.sendMessage(userId.value, receiverId, message);
 
-    // Add the conversation to the receiver's chat list
-    await _repository.sendMessage(receiverId, userId.value, message);
+    /*// Add the conversation to the receiver's chat list
+    await _repository.sendMessage(userId.value, receiverId, message);*/
   }
 }

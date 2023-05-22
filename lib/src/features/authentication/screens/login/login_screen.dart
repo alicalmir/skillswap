@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:skillswap/src/common_widgets/form/form_header_widget.dart';
 import 'package:skillswap/src/constants/image_strings.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
 import 'package:skillswap/src/features/authentication/screens/login/widgets/login_fotter_widget.dart';
-import 'package:skillswap/src/features/authentication/screens/login/widgets/login_header_widget.dart';
 
 import 'widgets/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +22,9 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children:  [
                     /** Section 1 */
-                    FormHeaderWidget(
+                    const FormHeaderWidget(
                       image: tWelcomeScreenImage,
                       title: tLoginTitle,
                       subtitle: tLoginSubTitle,
@@ -37,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                     LoginForm(),
                     /** end */
                     /**Section 3 */
-                    LoginFooterWidget()
+                    const LoginFooterWidget()
                     /**end */
 
                     /** FORGET PASSWORD BOTTON */

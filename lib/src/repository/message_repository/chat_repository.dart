@@ -63,7 +63,7 @@ class ChatRepository {
       await senderChatListRef.set({
         'name': 'Receiver Name', // Replace with receiver's name
         'message': message,
-        'reciverId': receiverId,
+        'receiverId': receiverId,
         'senderId': senderId,
         'date': DateTime.now().toString(),
         'token': 'Receiver Token', // Replace with receiver's token
@@ -76,8 +76,6 @@ class ChatRepository {
       String senderId, String receiverId) {
     return _firestore
         .collection('PersonalChat')
-        .where('senderId', isEqualTo: senderId)
-        .where('receiverId', isEqualTo: receiverId)
         .orderBy('date', descending: true)
         .snapshots()
         .map((snapshot) => snapshot.docs.map((doc) {
@@ -86,33 +84,38 @@ class ChatRepository {
               return MessageModel(
                 name: data['name'],
                 message: data['message'],
-                id: data['senderId'],
-                senderId: senderId, // Update senderId
-                receiverId: receiverId,
+                senderId: data['senderId'],
+                receiverId: data['receiverId'],
+                id: doc.id, // Use the document ID as the message ID
                 date: data['date'],
               );
             }).toList());
   }
 
-  // Get chat list for a specific user
-  Stream<List<MessageModel>> getChatList(String userId) {
-    return _firestore
+  Future<List<MessageModel>> getChatList(String userId) async {
+    final snapshot = await _firestore
         .collection('ChatList')
         .doc(userId)
         .collection('messagesList')
         .orderBy('date', descending: true)
-        .snapshots()
-        .map((snapshot) => snapshot.docs.map((doc) {
-              final data = doc.data();
+        .get();
 
-              return MessageModel(
-                name: data['name'],
-                message: data['message'],
-                senderId: data['id'], // Update senderId
-                receiverId: userId,
-                id: data['id'],
-                date: data['date'],
-              );
-            }).toList());
+print('Number of chat list documents: ${snapshot.docs.length}');
+
+    final chatList = snapshot.docs.map((doc) {
+      print('Document ID: ${doc.id}');
+      final data = doc.data();
+
+      return MessageModel(
+        name: data['name'],
+        message: data['message'],
+        senderId: userId,
+        receiverId: data['id'],
+        id: doc.id,
+        date: data['date'],
+      );
+    }).toList();
+
+    return chatList;
   }
 }

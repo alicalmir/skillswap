@@ -21,13 +21,12 @@ class MessageModel {
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
 
     return MessageModel(
-      id: data['id'] as String,
-      senderId: data['senderId'] as String,
-      receiverId: data['receiverId'] as String,
-      name: data['name'] as String,
-      message: data['message'] as String,
-      date: data['date'] as String,
+      id: data['id'],
+      senderId: data['senderId'],
+      receiverId: data['receiverId'],
+      name: data['name'],
+      message: data['message'],
+      date: data['date'],
     );
   }
-
 }

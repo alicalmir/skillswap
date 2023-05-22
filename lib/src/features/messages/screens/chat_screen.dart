@@ -119,7 +119,7 @@ class PersonalChatScreen extends StatelessWidget {
 
                     if (message.isNotEmpty) {
                       // Call the sendMessage method to send the message
-                      chatController.sendMessage(receiverId, message);
+                      chatController.sendMessage(receiverId, message,);
 
                       // Clear the message text field after sending the message
                       chatController.messageController.clear();

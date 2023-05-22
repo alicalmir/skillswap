@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:uuid/uuid.dart';
-
 import '../../../repository/post_repository/post_repository.dart';
 import '../../../repository/user_repository/user_repository.dart';
 import '../models/post_model.dart';
@@ -42,7 +40,6 @@ class PostController extends GetxController {
       posts.add(post);
       return docId;
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

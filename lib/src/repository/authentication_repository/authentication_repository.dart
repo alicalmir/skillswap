@@ -14,8 +14,8 @@ class AuthenticationRepository extends GetxController {
   var verificationId = ''.obs;
 
   @override
-  void onReady() {
-    Future.delayed(const Duration(seconds: 6));
+  Future<void> onReady() async {
+    await Future.delayed(const Duration(seconds: 6));
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges());
     ever(firebaseUser, _setInitialScreen);
@@ -77,13 +77,11 @@ class AuthenticationRepository extends GetxController {
       // Account creation failed, show error message to user
       Get.snackbar('Error', e.toString());
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
-      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       throw ex;
     } catch (e) {
       // Account creation failed, show error message to user
       Get.snackbar('Error', e.toString());
       var ex = SignUpWithEmailAndPasswordFailure();
-      print('EXCEPTION - ${ex.message}');
       throw ex;
     }
   }
@@ -91,8 +89,8 @@ class AuthenticationRepository extends GetxController {
   Future<void> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseException catch (e) {
-    } catch (_) {}
+    } on FirebaseException {
+    } catch (e) {}
   }
 
   Future<void> logout() async => await _auth.signOut();

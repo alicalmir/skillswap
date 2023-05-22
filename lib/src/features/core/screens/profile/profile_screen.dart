@@ -9,9 +9,12 @@ import 'package:skillswap/src/features/authentication/screens/welcome/welcome_sc
 import 'package:skillswap/src/features/core/screens/dashboard/dascboard_screen.dart';
 import 'package:skillswap/src/features/core/screens/profile/update_profile_screen.dart';
 import 'package:skillswap/src/features/core/screens/profile/widget/profile_menu.dart';
+import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final AuthenticationRepository _authRepo = AuthenticationRepository.instance;
+
+  ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => UpdateProfileScreen()),
+                onPressed: () => Get.to(() => const UpdateProfileScreen()),
                 style: ElevatedButton.styleFrom(
                     backgroundColor: tPrimaryColor,
                     side: BorderSide.none,
@@ -139,7 +142,10 @@ class ProfileScreen extends StatelessWidget {
               title: "Logout",
               icon: LineAwesomeIcons.alternate_sign_out,
               onPress: () {
-                Get.offAll(() => const WelcomeScreen());
+                //like here
+                _authRepo.logout().then((_) {
+                  Get.offAll(() => const WelcomeScreen());
+                });
               },
               endIcon: false,
               textColor: Colors.red,

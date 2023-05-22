@@ -3,12 +3,8 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:skillswap/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:skillswap/src/repository/user_repository/user_repository.dart';
-import 'package:uuid/uuid.dart';
-
 import '../../../repository/authentication_repository/exceptions/signup_email_password_failure.dart';
 import '../models/user_model.dart';
-import '../screens/forget_password/forget_password_otp/otp_screen.dart';
-import '../screens/welcome/welcome_screen.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -49,7 +45,6 @@ class SignUpController extends GetxController {
       );
     } catch (e) {
       // Handle other exceptions
-      print('Unexpected error: $e');
     }
   }
 

@@ -59,7 +59,7 @@ class Dashboard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)),
             child: IconButton(
               onPressed: () {
-                Get.to(() => const ProfileScreen());
+                Get.to(() =>  ProfileScreen());
               },
               icon: const Image(image: AssetImage(tPRofileImages)),
             ),

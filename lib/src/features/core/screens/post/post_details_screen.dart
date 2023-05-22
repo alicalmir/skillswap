@@ -1,12 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:skillswap/src/features/messages/screens/chat_screen.dart';
 
 import '../../../../constants/colors.dart';
-import '../../../../repository/message_repository/chat_repository.dart';
-import '../../../../repository/user_repository/user_repository.dart';
 import '../../models/post_model.dart';
 
 class PostDetailsScreen extends StatelessWidget {
@@ -130,55 +127,53 @@ class PostDetailsScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 32,
-                      horizontal: 20,
-                    ),
-                    child: Text(post.body,
-                        style: Theme.of(context).textTheme.headline2),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 32,
+                    horizontal: 20,
                   ),
-                  const SizedBox(height: 20),
-                  Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 10,
-                          right: 10,
-                          bottom: 18,
-                        ),
-                        child: SizedBox(
-                          width: 300,
-                          height: 50,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Get.to(() => PersonalChatScreen(
-                                    receiverId: post.userId!,
-                                    receiverName: post.userName!,
-                                    
-                                  ));
-                            },
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 16,
-                              ),
+                  child: Text(post.body,
+                      style: Theme.of(context).textTheme.headline2),
+                ),
+                const SizedBox(height: 20),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                        bottom: 18,
+                      ),
+                      child: SizedBox(
+                        width: 300,
+                        height: 50,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => PersonalChatScreen(
+                                  receiverId: post.userId!,
+                                  receiverName: post.userName!,
+                                  
+                                ));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                            child: const Text("Start Your Journey"),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 16,
+                            ),
                           ),
+                          child: const Text("Start Your Journey"),
                         ),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

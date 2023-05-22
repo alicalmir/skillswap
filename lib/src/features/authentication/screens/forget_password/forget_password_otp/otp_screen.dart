@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:skillswap/src/constants/size.dart';
 import 'package:skillswap/src/constants/text_string.dart';
 import 'package:skillswap/src/features/authentication/controllers/otp_controller.dart';

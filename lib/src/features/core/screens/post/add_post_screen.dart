@@ -56,10 +56,10 @@ class AddPostScreen extends StatelessWidget {
                 if (titleController.text.length > 25) {
                   // show snack bar if title length is more than 40
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: const Text(
+                    const SnackBar(
+                      content: Text(
                           'Title can only have maximum of 25 characters.'),
-                      duration: const Duration(seconds: 2),
+                      duration: Duration(seconds: 2),
                     ),
                   );
                 } else {
